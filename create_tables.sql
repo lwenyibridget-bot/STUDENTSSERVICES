@@ -14,7 +14,7 @@ CREATE TABLE Departments (
 CREATE TABLE Students (
     student_id INT PRIMARY KEY NOT NULL,
     name VARCHAR(100) NOT NULL,
-    date_of_birth DATE NOT NULL,
+    UNIQUE(date_of_birth) DATE NOT NULL,
     gender VARCHAR(10) CHECK (gender IN ('Male', 'Female')),
     department_id INT,
     email VARCHAR(150),
@@ -58,3 +58,8 @@ CREATE TABLE Staff (
     email VARCHAR(100) UNIQUE NOT NULL,
     FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
+ALTER TABLE Students
+ADD PhoneNumber VARCHAR(15);
+
+ALTER TABLE Courses
+ADD Semester VARCHAR(20);

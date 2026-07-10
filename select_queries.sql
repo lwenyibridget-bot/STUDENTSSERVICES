@@ -28,3 +28,44 @@ SELECT Students.name, Assessments.CAT1_score, Assessments.CAT2_score
 FROM Students
 JOIN Assessments ON Students.student_id = Assessments.student_id
 WHERE Assessments.CAT1_score < 15 OR Assessments.CAT2_score < 15;
+SELECT COUNT(*) AS TotalStudents
+FROM Students;
+SELECT *
+FROM Students
+ORDER BY Name;
+SELECT *
+FROM Students
+WHERE Gender = 'Male';
+SELECT *
+FROM Students
+WHERE Gender = 'Female';
+SELECT DepartmentID, COUNT(*) AS TotalStudents
+FROM Students
+GROUP BY DepartmentID;
+
+SELECT s.Name,
+       c.CourseName,
+       e.EnrollmentDate
+FROM Students s
+INNER JOIN Enrollments e
+    ON s.StudentID = e.StudentID
+INNER JOIN Courses c
+    ON e.CourseID = c.CourseID;
+
+   UPDATE Students
+SET Email = 'student1@students.ac.ke'
+WHERE StudentID = 1;
+
+SELECT AVG(ExamScore) AS AverageExamScore
+FROM Assessments;
+
+SELECT AVG(ExamScore) AS AverageExamScore
+FROM Assessments;
+
+SELECT MAX(ExamScore) AS HighestExamScore
+FROM Assessments;
+
+SELECT MIN(ExamScore) AS LowestExamScore
+FROM Assessments;
+
+
